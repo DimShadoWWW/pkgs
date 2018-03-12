@@ -1,5 +1,6 @@
-_npmname=npm2arch
+_npmname="git+https://github.com/simon04/npm2arch.git"
 _npmver=1.0.0
+name=npm2arch
 pkgname=nodejs-npm2arch # All lowercase
 pkgver=1.0.0
 pkgrel=1
@@ -9,16 +10,16 @@ url="https://github.com/simon04/npm2arch"
 license=(MIT)
 depends=('nodejs' 'npm')
 optdepends=()
-source=(https://github.com/simon04/$_npmname/archive/$_npmver.tar.gz)
+source=(https://github.com/simon04/npm2arch/archive/$_npmver.tar.gz)
 noextract=($_npmver.tar.gz)
-sha1sums=(05dbc5e5ce6ae0306e22d9811df170cd26454a2d)
+sha1sums=(2ce5026fcd5ef0a896ae72a14e446a44d84f5d61)
 
 package() {
     cd $srcdir
     local _npmdir="$pkgdir/usr/lib/node_modules/"
     mkdir -p $_npmdir
     cd $_npmdir
-    npm install -g --prefix "$pkgdir/usr" $_npmname@$_npmver
+    npm install -g --prefix "$pkgdir/usr" "$_npmname#$_npmver"
 }
 
 # vim:set ts=2 sw=2 et:
